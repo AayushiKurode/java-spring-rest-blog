@@ -1,5 +1,6 @@
 package com.pluralsight.blog.data;
 
+import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
 import com.pluralsight.blog.model.Author;
 import com.pluralsight.blog.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Repository
 public interface PostRepository extends JpaRepository<Post, Long>{
     public default List<Post> findAll() {
         return new ArrayList<>();
@@ -31,4 +32,7 @@ public interface PostRepository extends JpaRepository<Post, Long>{
     	return lastname;
     }
     
+    @RestResource(exported = true) 
+    List<Post> findByTitleContaining(String title);
+
 }

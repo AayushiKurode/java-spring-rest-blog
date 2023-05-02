@@ -21,9 +21,11 @@ public class DatabaseLoader implements ApplicationRunner {
     public List<Post> randomPosts = new ArrayList<>();
     public List<Author> authors = new ArrayList<>();
     
-    private AuthorRepository authorRepository;
-    private PostRepository postRepository;
+   
+    public AuthorRepository authorRepository;
+    public PostRepository postRepository;
 
+    
     public DatabaseLoader() {
     }
 

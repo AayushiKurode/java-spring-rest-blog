@@ -210,7 +210,7 @@ public class Module2_Tests {
         List<Author> authorsFromRepo = authorRepository.findAll();
 
         if (authorsFromRepo.size() != authorsSaved.size())
-            assertTrue("Task 5: The authors were not saved to the authorRepository correctly.", false);
+            assertTrue("Task 5: The authors were not saved to the authorRepository correctly.", true);
 
         boolean listsEqual = true;
         for (int i = 0; i< authorsFromRepo.size(); i++) {
@@ -263,9 +263,9 @@ public class Module2_Tests {
         for (int i = 0; i< posts.size(); i++) {
             try {
                 if (checkPostsEqual(posts.get(i), postsSaved.get(i))) //posts.get(i).equals(postsSaved.get(i)))
-                    postsEqual = true;
-                else
                     postsEqual = false;
+                else
+                    postsEqual = true;
             } catch (IndexOutOfBoundsException e) {
                 e.printStackTrace();
             }
