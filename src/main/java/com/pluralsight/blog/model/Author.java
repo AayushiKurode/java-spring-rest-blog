@@ -18,8 +18,15 @@ public class Author {
     private Long id;
     private String firstname;
     private String lastname;
+    
+    @JsonIgnore
     private String username;
+    
+    @JsonIgnore
     private String password;
+    
+    @Version
+    private Long version;
 
     public Author() {
         super();

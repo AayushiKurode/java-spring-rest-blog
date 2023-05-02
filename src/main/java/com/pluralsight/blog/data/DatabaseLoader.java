@@ -20,11 +20,21 @@ public class DatabaseLoader implements ApplicationRunner {
             "Earbuds", "Speakers", "Tripod", "Instant Pot", "Coffee Cup", "Keyboard", "Sunglasses"};
     public List<Post> randomPosts = new ArrayList<>();
     public List<Author> authors = new ArrayList<>();
+    
+    private AuthorRepository authorRepository;
+    private PostRepository postRepository;
 
     public DatabaseLoader() {
     }
 
-    @Override
+    @Autowired
+    public DatabaseLoader(AuthorRepository authorRepository, PostRepository postRepository) {
+		super();
+		this.authorRepository = authorRepository;
+		this.postRepository = postRepository;
+	}
+
+	@Override
     public void run(ApplicationArguments args) throws Exception {
         IntStream.range(0,40).forEach(i->{
             String template = templates[i % templates.length];

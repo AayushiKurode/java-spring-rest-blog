@@ -10,12 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class AuthorRepository {
-    public List<Author> findAll() {
+@RepositoryRestResource(exported = false)
+public interface AuthorRepository extends JpaRepository<Author, Long>{
+    public default List<Author> findAll() {
         return new ArrayList<>();
     }
 
-    public List<Author> saveAll(List<Author> authors) {
+    public default List<Author> saveAll(List<Author> authors) {
         return new ArrayList<>();
     }
 }
