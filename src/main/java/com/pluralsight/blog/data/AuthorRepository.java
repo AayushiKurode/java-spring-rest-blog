@@ -12,13 +12,13 @@ import java.util.List;
 
 @RepositoryRestResource(exported = false)
 public interface AuthorRepository extends JpaRepository<Author, Long>{
-    public default List<Author> findAll() {
-        return new ArrayList<>();
-    }
-
-    public static List<Author> saveAll(List<Author> authors) {
+//    public default List<Author> findAll() {
 //        return new ArrayList<>();
-    	return authors;
-    }
+//    }
+//
+//    public static List<Author> saveAll(List<Author> authors) {
+////        return new ArrayList<>();
+//    	return authors;
+//    }
     
 }

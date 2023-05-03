@@ -16,23 +16,20 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstname;
-    private String lastname;
-    
-    @JsonIgnore
-    private String username;
-    
-    @JsonIgnore
-    private String password;
-    
     @Version
     private Long version;
-    
-//    private List<Post> posts;
+    private String firstname;
+    private String lastname;
+    @JsonIgnore
+    private String username;
+    @JsonIgnore
+    private String password;
+    @OneToMany
+    private List<Post> posts;
 
     public Author() {
         super();
-//        posts = new ArrayList<>();
+        posts = new ArrayList<>();
     }
 
     public Author(String username, String firstname, String lastname, String password) {
@@ -95,10 +92,10 @@ public class Author {
     }
 
     public List<Post> getPosts() {
-        return null;
+        return posts;
     }
 
     public void addPost(Post post) {
-        return;
+        posts.add(post);
     }
 }
